@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
-	<grid name="student-portal-grid" title="Student" model="com.axelor.apps.rku.db.StudentPortal">
+	<grid name="student-portal-grid" title="Student" model="com.axelor.apps.rku.db.StudentPortal" canDelete="false">
 		<hilite if="updateInfo" color="danger"/>
 		 <field name="enrollmentNo"/>
 		 <field name="email"/>
@@ -21,7 +21,7 @@
 		 <field name="currentYearFee" hidden="true"/>
 	</grid>
 
-	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem,save">
+	<form name="student-portal-form" title="Student Portal" model="com.axelor.apps.rku.db.StudentPortal"  width="large" onNew="action-student-portal-attrs-set-user" onLoad="action-student-portal-group-update-sem,save" canCopy="false" canDelete="false">
 		
 		<panel name="studentPanel">
 			<field name="firstName" colSpan="3" required="true" readonlyIf="!isUpdate &amp;&amp; setInfo"/>
@@ -44,7 +44,7 @@
 		</panel>
 		
 		  <panel name="setInformationPanel" showIf="!setInfo">
-  			<button name="setInfo" title="Set Info" onClick="action-student-portal-record-set-info-true" colSpan="12"/>
+  			<button name="setInfo" title="Set Info" onClick="save,action-student-portal-record-set-info-true,save" colSpan="12"/>
     		<field name="setInfo" title="Student info" hidden="true"/>
     		<field name="changeSemester" hidden="true"/>
   			<field name="currentYearFee" hidden="true"/>
@@ -66,8 +66,8 @@
 		
 		<panel name="updatePanel" sidebar="true">
 			<field name="updateInfo" readonly="true" widget="InlineCheckbox" />
-			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-record-update-true" showIf="isUpdate" />
-			<button name="updateDisable" title="Update Disable" onClick="action-student-portal-record-update-false" showIf="isUpdate || updateInfo" />
+			<button name="updateEnable" title="Update Enable" onClick="action-student-portal-record-update-true,save" showIf="isUpdate" />
+			<button name="updateDisable" title="Update Disable" onClick="save,action-student-portal-record-update-false,save" showIf="isUpdate || updateInfo" />
 		</panel>
 		
 		<panel-mail name="mailsPanel">

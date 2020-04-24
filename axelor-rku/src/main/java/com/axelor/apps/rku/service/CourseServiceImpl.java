@@ -45,6 +45,7 @@ public class CourseServiceImpl implements CourseService {
       student.setCurrentSem(newSem);
       student.setUpdateInfo(true);
       student.setChangeSemester(true);
+      student.setCurrentYearFee(false);
       Beans.get(StudentPortalRepository.class).save(student);
     }
   }

@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 	
-	<grid name="faculty-grid" title="Faculty" model="com.axelor.apps.rku.db.Faculty">
+	<grid name="faculty-grid" title="Faculty" model="com.axelor.apps.rku.db.Faculty" canDelete="false">
 		 <field name="firstName"/>
 		 <field name="sureName"/>
 		 <field name="active" />
@@ -10,7 +10,7 @@
 		 <field name="semConfig" />
 	</grid>
 
-	<form name="faculty-form" title="Faculty" model="com.axelor.apps.rku.db.Faculty" onNew="action-faculty-attrs-set-user" width="large" >
+	<form name="faculty-form" title="Faculty" model="com.axelor.apps.rku.db.Faculty" onNew="action-faculty-attrs-set-user" width="large"  canDelete="false" canCopy="false" >
 		
 		<panel name="facultyPanel">
 			<field name="firstName" colSpan="3" required="true" />

@@ -30,7 +30,7 @@
        </panel>
  
 		<panel name="btnPanel" hideIf="createdBy.name != $currentUser">
-			 <button name="POST" title="POST" onClick="save,action-attrs-set-current-user,reload" showIf="id == null" colSpan="12" icon="fa-tasks" />
+			 <button name="POST" title="POST" onClick="save,action-attrs-set-current-user,action-attrs-internal-chat-hide-like-button" showIf="id == null" colSpan="12" icon="fa-tasks" />
    			 <button name="delete" title="DELETE" onClick="action-method-chat-delete-post,rku.internal.chat.view" showIf="id != null" colSpan="12" icon="fa-tasks" css="btn-danger"/>
 		</panel>
 

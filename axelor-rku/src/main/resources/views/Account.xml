@@ -23,10 +23,10 @@
 	</grid>
 	
 
-	<form name="account-form" title="Account" model="com.axelor.apps.rku.db.Account" canDelete="false" canSave="false" canCopy="false" canArchive="false" >
+	<form name="account-form" title="Account" model="com.axelor.apps.rku.db.Account" onSave="save,action-account-method-student-paid-fee" canDelete="false" canCopy="false" canArchive="false" >
 		
 		<panel name="mainAccountPanal">
-			 <field name="student" required="true" onChange="action-account-attrs-set-fee-details" canView="false"/>
+			 <field name="student" required="true" onChange="action-account-attrs-set-fee-details" canView="false" readonlyIf="id != null" />
 			 <field name="course" readonly="true" canView="false" />
 			 <field name="branchConfig" readonly="true" canView="false"/>
 			 <field name="semester" readonly="true" canView="false" />
@@ -43,6 +43,7 @@
 		
 		<panel name="scolerPanel" sidebar="true">
 			<field name="scolerShip" onChange="action-account-method-less-scolership-from-fee" readonlyIf="student == null"/>
+			<field name="scolershipReason"/>
 		</panel>
 		
 		<panel>
